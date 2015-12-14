@@ -6,8 +6,6 @@ var configure = require('./config.js');
 
 // Import our controllers
 var indexControllers = require('./controllers/index.js');
-var aboutControllers = require('./controllers/about.js');
-var eventControllers = require('./controllers/events.js');
 
 
 // Create our express app
@@ -18,14 +16,4 @@ configure(app);
 
 // Add routes mapping URLs to controllers
 app.get('/', indexControllers.index);
-app.get('/about', aboutControllers.about);
-app.get('/events', eventControllers.listEvents);
-app.get('/events/new', eventControllers.newEvent);
-// app.get('/events/details', eventControllers.eventDetail)
-app.get('/events/:id', eventControllers.eventDetail)
-app.get('/api/events', eventControllers.api);
-app.post('/events/new', eventControllers.saveEvent);
-app.post('/events/:id', eventControllers.rsvp)
-app.get('/example', indexControllers.example);
-app.get('/donate', indexControllers.donate);
 module.exports = app;
